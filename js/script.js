@@ -48,3 +48,30 @@ document.addEventListener('DOMContentLoaded', () => {
     typingEffect();
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+    const aboutSection = document.querySelector('.about');
+    const aboutButton = document.querySelector('a[href="#about"]'); // Assuming your About button has this link
+
+    // Intersection Observer to animate on scroll
+    const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                aboutSection.classList.add('active');
+            }
+        });
+    });
+
+    observer.observe(aboutSection);
+
+    // Function to animate when the About button is clicked
+    function scrollToAbout() {
+        aboutSection.scrollIntoView({ behavior: 'smooth' });  // Smooth scroll to the About section
+        aboutSection.classList.add('active');  // Trigger the animation
+    }
+
+    // Add event listener to the About button
+    aboutButton.addEventListener('click', function (event) {
+        event.preventDefault();  // Prevent default link behavior
+        scrollToAbout();
+    });
+});
