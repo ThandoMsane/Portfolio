@@ -26,7 +26,7 @@
         <ul class="navbar">
             <li><a href="#" class="active">Home</a></li>
             <li><a href="#about" class="about-btn">About</a></li>
-            <li><a href="#">Services</a></li>
+            <li><a href="#services">Services</a></li>
             <li><a href="#">Portfolio</a></li>
             <li><a href="#">Blog</a></li>
             <li><a href="#">Contacts</a></li>
@@ -70,28 +70,125 @@
         </div>
     </div>
 
-<!--About Section -->
-<section class="about" id="about">
-    <div class="about-content">
-        <h2>About Me</h2>
-        <p id="about-text">
-             Hi, I'm Thando Msane, an individual passionate about technology, particularly in 
-             business information systems and web development. My journey has involved managing 
-             complex projects and tutoring, where I’ve gained hands-on experience in software 
-             testing, health tech solutions, and agile project management. As I complete my 
-             studies in Business Information Technology, I’m eager to apply my knowledge to 
-             innovative projects that make a difference in real-world applications. 
-             From developing elderly care platforms to tutoring and managing projects, 
-             I continually seek opportunities to grow and contribute to meaningful solutions.
-        </p>
-        <a href="#contact" class="btn-1">Contact Me</a>
-    </div>
-    <div class="about-img">
-        <img src="img/image.jpeg" alt="About Image" style="height: 300px; ">
-    </div>
-</section>
+    <!--About Section -->
+    <section class="about" id="about">
+        <div class="about-content">
+            <h2>About Me</h2>
+            <p id="about-text">
+                Hi, I'm Thando Msane, an individual passionate about technology, particularly in
+                business information systems and web development. My journey has involved managing
+                complex projects and tutoring, where I’ve gained hands-on experience in software
+                testing, health tech solutions, and agile project management. As I complete my
+                studies in Business Information Technology, I’m eager to apply my knowledge to
+                innovative projects that make a difference in real-world applications.
+                From developing elderly care platforms to tutoring and managing projects,
+                I continually seek opportunities to grow and contribute to meaningful solutions.
+            </p>
+            <a href="#contact" class="btn-1">Contact Me</a>
+        </div>
+        <div class="about-img">
+            <img src="img/image.jpeg" alt="About Image" style="height: 350px; ">
+        </div>
+    </section>
 
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <h2 class="section-title">My Services</h2>
+        <div class="services-container">
+            <!-- Service Item 1: Website and App Creation -->
+            <div class="service-item">
+                <div class="service-image">
+                    <img src="img/Development.webp" alt="Website and App Creation">
+                </div>
+                <div class="service-text">
+                    <h3>Website & App Development</h3>
+                    <button class="view-more-btn" onclick="toggleService(this)">View More</button>
+                    <div class="service-details">
+                        <p>I create professional and responsive websites and applications tailored to the needs of upcoming
+                            businesses. My services cover everything from design to deployment, ensuring that your digital
+                            presence is both beautiful and functional.</p>
+                        <ul>
+                            <li>Custom website designs</li>
+                            <li>Full-stack development</li>
+                            <li>App creation for Android and iOS</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Service Item 2: Web & App Design -->
+            <div class="service-item">
+                <div class="service-image">
+                    <img src="img/Design.webp" alt="Web & App Design">
+                </div>
+                <div class="service-text">
+                    <h3>Web & App Design</h3>
+                    <button class="view-more-btn" onclick="toggleService(this)">View More</button>
+                    <div class="service-details">
+                        <p>I provide sleek, modern designs that attract users and enhance user experience. Whether it's a
+                            corporate website or an e-commerce platform, my designs help your brand stand out.</p>
+                        <ul>
+                            <li>UI/UX Design</li>
+                            <li>Interactive prototypes</li>
+                            <li>Responsive & mobile-first designs</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Service Item 3: Information Systems Tutoring -->
+            <div class="service-item">
+                <div class="service-image">
+                    <img src="img/Tutor.webp" alt="Information Systems Tutoring">
+                </div>
+                <div class="service-text">
+                    <h3>Information Systems Tutoring</h3>
+                    <button class="view-more-btn" onclick="toggleService(this)">View More</button>
+                    <div class="service-details">
+                        <p>With my background in Information Systems, I offer tutoring sessions to help students and
+                            professionals grasp key concepts, improve their skills, and excel in their courses or careers.</p>
+                        <ul>
+                            <li>Expert guidance in Information Systems</li>
+                            <li>Assignment & project help</li>
+                            <li>One-on-one and group sessions</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     
+        <!-- Modal for Service Details -->
+        <div id="serviceModal" class="modal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <div class="modal-left">
+                    <img id="modalImage" src="" alt="Service Image">
+                </div>
+                <div class="modal-right">
+                    <h3 id="modalTitle"></h3>
+                    <p id="modalDescription"></p>
+                    <ul id="modalFeatures"></ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+
+    <!--Modal-->
+    <div id="serviceModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div class="modal-left">
+                <img id="modalImage" src="" alt="Service Image">
+            </div>
+            <div class="modal-right">
+                <h3 id="modalTitle"></h3>
+                <p id="modalDescription"></p>
+                <ul id="modalFeatures"></ul>
+            </div>
+        </div>
+    </div>
+    
+
     <!--Custom js file link-->
     <script src="js/script.js"></script>
 
