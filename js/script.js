@@ -130,3 +130,25 @@ window.onclick = function(event) {
         modal.style.display = 'none';
     }
 }
+
+// my skills
+
+document.addEventListener("DOMContentLoaded", () => {
+    const skillBars = document.querySelectorAll(".progress");
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const bar = entry.target;
+                    const skillValue = bar.getAttribute("data-skill");
+                    bar.style.width = skillValue; // Set the width based on data-skill
+                    observer.unobserve(bar); // Stop observing once animated
+                }
+            });
+        },
+        { threshold: 0.5 } // Trigger when 50% of the element is in view
+    );
+
+    skillBars.forEach((bar) => observer.observe(bar));
+});
