@@ -152,3 +152,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
     skillBars.forEach((bar) => observer.observe(bar));
 });
+
+

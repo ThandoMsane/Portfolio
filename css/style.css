@@ -982,15 +982,27 @@ main.row-education{
     pointer-events: none;
     transition: 0.5s;
 }
-
+/* Default style when input is being focused */
 .contactForm .inputBox input:focus ~ span,
-.contactForm .inputBox input:valid ~ span,
-.contactForm .inputBox textarea:focus ~ span,
-.contactForm .inputBox textarea:valid ~ span{
-    color: #e91e63;
+.contactForm .inputBox textarea:focus ~ span {
     font-size: 12px;
     transform: translateY(-20px);
 }
+
+/* If the input is valid, show green */
+.contactForm .inputBox input:valid ~ span,
+.contactForm .inputBox textarea:valid ~ span {
+    color: #28a745; /* Green */
+    font-size: 12px;
+    transform: translateY(-20px);
+}
+
+/* If the input is invalid, show red */
+.contactForm .inputBox input:invalid ~ span,
+.contactForm .inputBox textarea:invalid ~ span {
+    color: #e91e63; /* Red */
+}
+
 
 .contactForm .inputBox input[type="submit"]{
     width: 100px;

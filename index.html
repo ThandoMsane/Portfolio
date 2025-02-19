@@ -17,6 +17,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    
+     <!--Email Js connecting script-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init({
+                publicKey: "Gh2_BEQy3juexEhnL",
+            });
+        })();
+    </script>
 </head>
 <body>
 
@@ -52,7 +63,7 @@
                 
             <div class="main-btn">
                 <a href="CV/CV_Thando Msane.pdf" class="btn">Download CV</a>
-                <a href="#" class="btn-1">Hire Me Now</a>
+                <a href="#contacts" class="btn-1">Hire Me Now</a>
             </div>
         </div>
 
@@ -358,24 +369,60 @@
 
 
             <div class="contactForm">
-                <form>
+                <form onsubmit="return sendMail(event)">
                     <h2>Send Message</h2>
                     <div class="inputBox">
-                        <input type="text" name="" required="required">
+                        <input type="text" required="required" id="name" required minlength="3">
                         <span>Full Name</span>
                     </div>
                     <div class="inputBox">
-                        <input type="text" name="" required="required">
+                        <input type="email" required="required" id="email">
                         <span>Email</span>
                     </div>  
                     <div class="inputBox">
-                        <textarea required="required" id=""></textarea>
-                        <span>Type Your Message...<span>
+                        <textarea required="required" id="message" required minlength="3"></textarea>
+                        <span>Type Your Message...</span>
                     </div>
                     <div class="inputBox">
-                        <input type="submit" name="" value="Send">
+                        <input type="submit" value="Send">
                     </div>
                 </form>
+                
+                <script>
+                    function sendMail(event) {
+                        event.preventDefault();  // Prevent form from refreshing the page
+                
+                        var params = {
+                            name: document.getElementById('name').value,
+                            email: document.getElementById('email').value,
+                            message: document.getElementById('message').value,
+                        };
+                
+                        if (!params.email) {
+                            alert("The recipient's email address is empty. Please enter a valid email address.");
+                            return;
+                        }
+                
+                        const serviceID = "service_8xy8ful";
+                        const templateID = "template_dbgahyo";
+                
+                        emailjs.send(serviceID, templateID, params)
+                            .then(res => {
+                                document.getElementById('name').value = "";
+                                document.getElementById('email').value = "";
+                                document.getElementById('message').value = "";
+                                console.log(res);
+                                alert("Your message was successfully sent.");
+                            })
+                            .catch(err => {
+                                console.log("Failed to send email:", err);
+                                alert("Failed to send email. Please try again.");
+                            });
+                
+                        return false;  // Ensure the form does not submit
+                    }
+                </script>
+                
             </div>
         </div>
     </section>
@@ -383,6 +430,8 @@
 
     <!--Custom js file link-->
     <script src="js/script.js"></script>
+    <script src="js/index.js"></script>
+
 
 </body>
 </html>
